@@ -18,5 +18,9 @@
   </li>
 </ul> -->
 <!-- <dev-component></dev-component> -->
-<gis-viewer [gisViewerProps]="gisViewerState"></gis-viewer>
+<div *ngFor
+<gis-viewer 
+  gis-viewer-props="{{this.gisViewerState}}" 
+  [gis-viewer-props]="this.gisViewerState"
+  bind-gis-viewer-props="this.gisViewerState"></gis-viewer>
 

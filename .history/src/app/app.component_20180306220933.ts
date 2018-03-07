@@ -18,7 +18,7 @@ MiniMapOptions, ZoomControl, DrawBarOptions, MouseCoordinateOptions,
 export class AppComponent {
   title = 'app';
   gisViewerState: any;
-
+  
   constructor() {
     this.gisViewerState = this.createDevState();
   }
