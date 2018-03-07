@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { GisViewerProps } from 'gis-viewer/dist/types/components.d.ts';
+// import { GisViewerProps } from 'gis-viewer/dist/types/index.d';
 // import {
 //   /* GisViewerProps,  */MapSettings, TileLayerDefinition, ShapeLayerDefinition,
 // LayersControllerOptions, ScaleControlOptions, SearchBoxOptions,
@@ -7,11 +7,7 @@ import { Component } from '@angular/core';
 //   PolylineMeasureOptions, ZoomToExtendOptions, UnitsChangerOptions
 // } from 'gis-viewer/dist/gisviewer';
 
-import { GisViewerProps, MapSettings, TileLayerDefinition, ShapeLayerDefinition,
-  LayersControllerOptions, ScaleControlOptions, SearchBoxOptions, MiniMapOptions,
-  ZoomControl, DrawBarOptions, MouseCoordinateOptions, PolylineMeasureOptions,
-  ZoomToExtendOptions, UnitsChangerOptions} from 'gis-viewer/dist/types/models/apiModels';
-
+import { GisViewerProps, MapSettings, TileLayerDefinition, ShapeLayerDefinition, LayersControllerOptions, ScaleControlOptions, SearchBoxOptions} from 'gis-viewer/dist/types/models/apiModels';
 // from '../../dist/assets/gis-viewer/gisviewer';
 
 @Component({
@@ -118,7 +114,8 @@ export class AppComponent {
     const searchBox: SearchBoxOptions = {
       enable: true,
       searchOnLayer: true,
-      queryServerUrl: protocol + '//osm/nominatim?format=json&limit=3&type=administrative&q={s}'
+      queryServerUrl:
+        protocol + '//osm/nominatim?format=json&limit=3&type=administrative&q={s}'
     };
 
     const miniMap: MiniMapOptions = {
@@ -167,7 +164,7 @@ export class AppComponent {
       enable: true
     };
 
-    const isToolbarSettings = true;
+    const isToolbarSettings: boolean = true;
 
     return {
       mapSettings,

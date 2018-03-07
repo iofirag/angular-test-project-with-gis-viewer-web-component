@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { GisViewerProps } from 'gis-viewer/dist/types/components.d.ts';
+// import { GisViewerProps } from 'gis-viewer/dist/types/index.d';
 // import {
 //   /* GisViewerProps,  */MapSettings, TileLayerDefinition, ShapeLayerDefinition,
 // LayersControllerOptions, ScaleControlOptions, SearchBoxOptions,
@@ -7,11 +7,7 @@ import { Component } from '@angular/core';
 //   PolylineMeasureOptions, ZoomToExtendOptions, UnitsChangerOptions
 // } from 'gis-viewer/dist/gisviewer';
 
-import { GisViewerProps, MapSettings, TileLayerDefinition, ShapeLayerDefinition,
-  LayersControllerOptions, ScaleControlOptions, SearchBoxOptions, MiniMapOptions,
-  ZoomControl, DrawBarOptions, MouseCoordinateOptions, PolylineMeasureOptions,
-  ZoomToExtendOptions, UnitsChangerOptions} from 'gis-viewer/dist/types/models/apiModels';
-
+import { GisViewerProps} from 'gis-viewer/dist/types/models/apiModels';
 // from '../../dist/assets/gis-viewer/gisviewer';
 
 @Component({
@@ -30,7 +26,7 @@ export class AppComponent {
   }
 
   createDevState(): GisViewerProps {
-    const protocol = 'http:';
+    const protocol = "http:";
 
     const mapSettings: MapSettings = {
       metric: true,
@@ -41,13 +37,13 @@ export class AppComponent {
         // chunkProgress: true,
         // singleMarkerMode: false
       },
-      mode: 'cluster'
+      mode: "cluster"
     };
 
     const tileLayers: TileLayerDefinition[] = [
       {
-        name: 'Online Map',
-        tilesURI: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+        name: "Online Map",
+        tilesURI: "http://{s}.tile.osm.org/{z}/{x}/{y}.png", // protocol + '//osm/osm_tiles/{z}/{x}/{y}.png', // 'http://{s}.tile.osm.org/{z}/{x}/{y}.png', // 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', // 'http://10.164.39.38/pandonia/{z}/{x}/{y}.png',
         // zoom: 1,
         // center: {
         // 	lat:0,
@@ -59,8 +55,8 @@ export class AppComponent {
         // zoomControl: false
       },
       {
-        name: 'Verint Map',
-        tilesURI: protocol + '//osm/osm_tiles/{z}/{x}/{y}.png',
+        name: "Verint Map",
+        tilesURI: protocol + "//osm/osm_tiles/{z}/{x}/{y}.png", // 'http://{s}.tile.osm.org/{z}/{x}/{y}.png', // 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', // 'http://10.164.39.38/pandonia/{z}/{x}/{y}.png',
         // zoom: 1,
         // center: {
         // 	lat: 32.076304,
@@ -75,36 +71,36 @@ export class AppComponent {
 
     const shapeLayers: ShapeLayerDefinition[] = [
       {
-        layerName: 'Test data 1',
+        layerName: "Test data 1",
         // isDisplay: false,
         shapes: [
           {
             shapeWkt:
-              'POLYGON((-14.765625 17.052584352706003,-12.83203125 15.703433338617463,-15.99609375 15.534142999890243,-14.765625 17.052584352706003))',
+              "POLYGON((-14.765625 17.052584352706003,-12.83203125 15.703433338617463,-15.99609375 15.534142999890243,-14.765625 17.052584352706003))",
             data: {
-              name: '232 (known as polygon1)',
-              id: 'polygon1'
+              name: "232 (known as polygon1)",
+              id: "polygon1"
             }
           },
           {
-            shapeWkt: 'POLYGON((0 0 0,0 5 0,5 5 0,5 0 0,0 0 0))',
+            shapeWkt: "POLYGON((0 0 0,0 5 0,5 5 0,5 0 0,0 0 0))",
             data: {
-              name: '232 (known as polygon1)',
-              id: 'polygon1'
+              name: "232 (known as polygon1)",
+              id: "polygon1"
             }
           },
           {
-            shapeWkt: 'LINESTRING(1 1 1,5 5 5,7 7 5)',
+            shapeWkt: "LINESTRING(1 1 1,5 5 5,7 7 5)",
             data: {
-              name: '232 (known as polygon1)',
-              id: 'polygon1'
+              name: "232 (known as polygon1)",
+              id: "polygon1"
             }
           }
         ]
       }
     ];
 
-    const isImportExport = true;
+    const isImportExport: boolean = true;
 
     const layersController: LayersControllerOptions = {
       enable: true
@@ -112,13 +108,15 @@ export class AppComponent {
 
     const scaleControl: ScaleControlOptions = {
       enable: true,
-      position: 'bottomright'
+      position: "bottomright"
     };
 
     const searchBox: SearchBoxOptions = {
       enable: true,
       searchOnLayer: true,
-      queryServerUrl: protocol + '//osm/nominatim?format=json&limit=3&type=administrative&q={s}'
+      queryServerUrl:
+        protocol +
+        "//osm/nominatim?format=json&limit=3&type=administrative&q={s}" // 'http://10.164.39.38/nominatim/search.php?format=json&q={s}' // 'http://nominatim.openstreetmap.org/search?format=json&q={s}' // 'http://nominatim.openstreetmap.org/search?format=json&q={s}'
     };
 
     const miniMap: MiniMapOptions = {
@@ -160,14 +158,14 @@ export class AppComponent {
 
     const zoomToExtend: ZoomToExtendOptions = {
       enable: true,
-      position: 'topright'
+      position: "topright"
     };
 
     const unitsChanger: UnitsChangerOptions = {
       enable: true
     };
 
-    const isToolbarSettings = true;
+    const isToolbarSettings: boolean = true;
 
     return {
       mapSettings,

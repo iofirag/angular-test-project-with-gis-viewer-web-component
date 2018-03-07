@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
-// import 'gis-viewer/dist/gisviewer.js';
+// import 'test-components/testcomponents';
+import '../../node_modules/gis-viewer/dist/gisviewer/';
 
 import { AppComponent } from './app.component';
 

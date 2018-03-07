@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { GisViewerProps } from 'gis-viewer/dist/types/components.d.ts';
+import { GisViewerProps } from 'gis-viewer/dist/types/components.d';
 // import {
 //   /* GisViewerProps,  */MapSettings, TileLayerDefinition, ShapeLayerDefinition,
 // LayersControllerOptions, ScaleControlOptions, SearchBoxOptions,

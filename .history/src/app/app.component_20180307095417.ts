@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-// import { GisViewerProps } from 'gis-viewer/dist/types/components.d.ts';
-// import {
-//   /* GisViewerProps,  */MapSettings, TileLayerDefinition, ShapeLayerDefinition,
-// LayersControllerOptions, ScaleControlOptions, SearchBoxOptions,
-// MiniMapOptions, ZoomControl, DrawBarOptions, MouseCoordinateOptions,
-//   PolylineMeasureOptions, ZoomToExtendOptions, UnitsChangerOptions
-// } from 'gis-viewer/dist/gisviewer';
+// import { GisViewerProps } from 'gis-viewer/dist/types/index.d';
+import {
+  /* GisViewerProps,  */MapSettings, TileLayerDefinition, ShapeLayerDefinition,
+LayersControllerOptions, ScaleControlOptions, SearchBoxOptions,
+MiniMapOptions, ZoomControl, DrawBarOptions, MouseCoordinateOptions,
+  PolylineMeasureOptions, ZoomToExtendOptions, UnitsChangerOptions
+} from 'gis-viewer/dist/gisviewer';
 
-import { GisViewerProps, MapSettings, TileLayerDefinition, ShapeLayerDefinition,
-  LayersControllerOptions, ScaleControlOptions, SearchBoxOptions, MiniMapOptions,
-  ZoomControl, DrawBarOptions, MouseCoordinateOptions, PolylineMeasureOptions,
-  ZoomToExtendOptions, UnitsChangerOptions} from 'gis-viewer/dist/types/models/apiModels';
-
+import { GisViewerProps} from 'gis-viewer/dist/types/models/apiModels';
 // from '../../dist/assets/gis-viewer/gisviewer';
 
 @Component({
@@ -44,7 +40,7 @@ export class AppComponent {
       mode: 'cluster'
     };
 
-    const tileLayers: TileLayerDefinition[] = [
+    const tileLayers: any[] = [
       {
         name: 'Online Map',
         tilesURI: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
@@ -73,7 +69,7 @@ export class AppComponent {
       }
     ];
 
-    const shapeLayers: ShapeLayerDefinition[] = [
+    const shapeLayers: any[] = [
       {
         layerName: 'Test data 1',
         // isDisplay: false,
@@ -106,31 +102,33 @@ export class AppComponent {
 
     const isImportExport = true;
 
-    const layersController: LayersControllerOptions = {
+    const layersController: any = {
       enable: true
     };
 
-    const scaleControl: ScaleControlOptions = {
+    const scaleControl: any = {
       enable: true,
       position: 'bottomright'
     };
 
-    const searchBox: SearchBoxOptions = {
+    const searchBox: any = {
       enable: true,
       searchOnLayer: true,
-      queryServerUrl: protocol + '//osm/nominatim?format=json&limit=3&type=administrative&q={s}'
+      queryServerUrl:
+        protocol +
+        '//osm/nominatim?format=json&limit=3&type=administrative&q={s}'
     };
 
-    const miniMap: MiniMapOptions = {
+    const miniMap: any = {
       enable: true,
       toggleDisplay: true
     };
 
-    const zoomControl: ZoomControl = {
+    const zoomControl: any = {
       enable: true
     };
 
-    const drawBar: DrawBarOptions = {
+    const drawBar: any = {
       enable: true,
       draw: {
         polyline: true,
@@ -145,25 +143,25 @@ export class AppComponent {
       }
     };
 
-    const mouseCoordinate: MouseCoordinateOptions = {
+    const mouseCoordinate: any = {
       enable: true,
       gps: true,
       utm: false,
       utmref: false
     };
 
-    const polylineMeasure: PolylineMeasureOptions = {
+    const polylineMeasure: any = {
       enable: true,
       showMeasurementsClearControl: true,
       clearMeasurementsOnStop: false
     };
 
-    const zoomToExtend: ZoomToExtendOptions = {
+    const zoomToExtend: any = {
       enable: true,
       position: 'topright'
     };
 
-    const unitsChanger: UnitsChangerOptions = {
+    const unitsChanger: any = {
       enable: true
     };
 

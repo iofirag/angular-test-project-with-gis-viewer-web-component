@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { GisViewerProps } from 'gis-viewer/dist/types/components.d.ts';
+import { GisViewerProps } from 'gis-viewer/dist/types/index.d';
 // import {
 //   /* GisViewerProps,  */MapSettings, TileLayerDefinition, ShapeLayerDefinition,
 // LayersControllerOptions, ScaleControlOptions, SearchBoxOptions,
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 //   PolylineMeasureOptions, ZoomToExtendOptions, UnitsChangerOptions
 // } from 'gis-viewer/dist/gisviewer';
 
-import { GisViewerProps, MapSettings, TileLayerDefinition, ShapeLayerDefinition,
+import { MapSettings, TileLayerDefinition, ShapeLayerDefinition,
   LayersControllerOptions, ScaleControlOptions, SearchBoxOptions, MiniMapOptions,
   ZoomControl, DrawBarOptions, MouseCoordinateOptions, PolylineMeasureOptions,
   ZoomToExtendOptions, UnitsChangerOptions} from 'gis-viewer/dist/types/models/apiModels';
