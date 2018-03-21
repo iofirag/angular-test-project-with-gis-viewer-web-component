@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 //   PolylineMeasureOptions, ZoomToExtendOptions, UnitsChangerOptions
 // } from 'gis-viewer/dist/gisviewer';
 
-import { GisViewerProps, TileLayerDefinition, ShapeLayerDefinition,
-   MiniMapOptions,
-   DrawBarOptions, MouseCoordinateOptions,
-   UnitsChangerOptions, MapConfig, LayerManagerConfig, ScaleConfig, SearchConfig, MiniMapConfig, DrawBarConfig, MouseCoordinateConfig, MeasureConfig, ZoomToExtentConfig, UnitsChangerConfig, FullScreenConfig, ToolbarConfig, MapPluginsConfig} from 'gis-viewer/dist/types/models/apiModels';
+import { GisViewerProps, MapSettings, TileLayerDefinition, ShapeLayerDefinition,
+  LayersControllerOptions, ScaleControlOptions, SearchBoxOptions, MiniMapOptions,
+  ZoomControl, DrawBarOptions, MouseCoordinateOptions, PolylineMeasureOptions,
+  ZoomToExtendOptions, UnitsChangerOptions} from 'gis-viewer/dist/types/models/apiModels';
 
 // from '../../dist/assets/gis-viewer/gisviewer';
 
@@ -32,27 +32,22 @@ export class AppComponent {
   createDevState(): GisViewerProps {
     const protocol = 'http:';
 
-    const mapConfig: MapConfig = {
-      isZoomToExtentOnNewData: true,
-      isWheelZoomOnlyAfterClick: true,
-      isZoomControl: true,
-      isFlyToBounds: true,
-      // isExport: true,
+    const mapSettings: MapSettings = {
+      metric: true,
+      wheelZoomOnlyAfterClick: true,
       clusterOptions: {
         // disableClusteringAtZoom: 13,
         // chunkedLoading: true,
         // chunkProgress: true,
         // singleMarkerMode: false
       },
-      mode: 'cluster',
-      distanceUnitType: 'km',
-      coordinateSystemType: 'gps',
+      mode: 'cluster'
     };
 
     const tileLayers: TileLayerDefinition[] = [
       {
         name: 'Online Map',
-        tilesURI: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png', // protocol + '//osm/osm_tiles/{z}/{x}/{y}.png', // 'http://{s}.tile.osm.org/{z}/{x}/{y}.png', // 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', // 'http://10.164.39.38/pandonia/{z}/{x}/{y}.png',
+        tilesURI: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
         // zoom: 1,
         // center: {
         // 	lat:0,
@@ -65,7 +60,7 @@ export class AppComponent {
       },
       {
         name: 'Verint Map',
-        tilesURI: protocol + '//osm/osm_tiles/{z}/{x}/{y}.png', // 'http://{s}.tile.osm.org/{z}/{x}/{y}.png', // 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', // 'http://10.164.39.38/pandonia/{z}/{x}/{y}.png',
+        tilesURI: protocol + '//osm/osm_tiles/{z}/{x}/{y}.png',
         // zoom: 1,
         // center: {
         // 	lat: 32.076304,
@@ -109,106 +104,88 @@ export class AppComponent {
       }
     ];
 
-    const layerManagerConfig: LayerManagerConfig = {
-      enable: true,
-      isImport: true
-    };
+    const isImportExport = true;
 
-    const scaleConfig: ScaleConfig = {
-      enable: true,
-      scaleOptions: {
-        position: 'bottomright'
-      }
-    };
-
-    const searchConfig: SearchConfig = {
-      enable: true,
-      searchOptions: {
-        searchOnLayer: true,
-        queryServerUrl: 'http://nominatim.openstreetmap.org/search?format=json&q={s}' // protocol + '//osm/nominatim?format=json&limit=3&type=administrative&q={s}' // 'http://10.164.39.38/nominatim/search.php?format=json&q={s}' // 'http://nominatim.openstreetmap.org/search?format=json&q={s}' // 'http://nominatim.openstreetmap.org/search?format=json&q={s}'
-      }
-    };
-
-    const miniMapConfig: MiniMapConfig = {
-      enable: true,
-      miniMapOptions: {
-        toggleDisplay: true
-      }
-    };
-
-    // const zoomControlConfig: ZoomConfig = {
-    //   enable: true
-    // };
-
-    const drawBarConfig: DrawBarConfig = {
-      enable: true,
-      drawBarOptions: {
-        draw: {
-          polyline: true,
-          polygon: true, // Turns off this drawing tool
-          circle: true, // Turns off this drawing tool
-          rectangle: true, // Turns off this drawing tool
-          marker: true, // Turns off this drawing tool
-          // circlemarker: false,
-          // textualMarker: false // Turns off this drawing tool
-        },
-        edit: {
-          remove: true // Turns on remove button
-        }
-      }
-    };
-
-    const mouseCoordinateConfig: MouseCoordinateConfig = {
-      enable: true,
-    };
-
-    const measureConfig: MeasureConfig = {
-      enable: true,
-      measureOptions: {
-        // showMeasurementsClearControl: true,
-        // clearMeasurementsOnStop: false
-      }
-    };
-
-    const zoomToExtentConfig: ZoomToExtentConfig = {
-      enable: true,
-      zoomToExtentOptions: {
-        position: 'topright'
-      }
-    };
-
-    const unitsChangerConfig: UnitsChangerConfig = {
-      enable: true
-    };
-    const fullScreenConfig: FullScreenConfig = {
+    const layersController: LayersControllerOptions = {
       enable: true
     };
 
+    const scaleControl: ScaleControlOptions = {
+      enable: true,
+      position: 'bottomright'
+    };
 
+    const searchBox: SearchBoxOptions = {
+      enable: true,
+      searchOnLayer: true,
+      queryServerUrl: protocol + '//osm/nominatim?format=json&limit=3&type=administrative&q={s}'
+    };
 
+    const miniMap: MiniMapOptions = {
+      enable: true,
+      toggleDisplay: true
+    };
 
-    const toolbarConfig: ToolbarConfig = {
-      isExport: true,
-      isSettings: true,
-      toolbarPluginsConfig: {
-        layerManagerConfig, fullScreenConfig, measureConfig,
-        unitsChangerConfig, zoomToExtentConfig,
-        drawBarConfig, searchConfig
+    const zoomControl: ZoomControl = {
+      enable: true
+    };
+
+    const drawBar: DrawBarOptions = {
+      enable: true,
+      draw: {
+        polyline: true,
+        polygon: true, // Turns off this drawing tool
+        circle: true, // Turns off this drawing tool
+        rectangle: true, // Turns off this drawing tool
+        marker: true // Turns off this drawing tool
+        // textualMarker: false // Turns off this drawing tool
+      },
+      edit: {
+        remove: true // Turns on remove button
       }
+    };
 
+    const mouseCoordinate: MouseCoordinateOptions = {
+      enable: true,
+      gps: true,
+      utm: false,
+      utmref: false
     };
-    const mapPluginsConfig: MapPluginsConfig = {
-      miniMapConfig, scaleConfig, mouseCoordinateConfig
+
+    const polylineMeasure: PolylineMeasureOptions = {
+      enable: true,
+      showMeasurementsClearControl: true,
+      clearMeasurementsOnStop: false
     };
+
+    const zoomToExtend: ZoomToExtendOptions = {
+      enable: true,
+      position: 'topright'
+    };
+
+    const unitsChanger: UnitsChangerOptions = {
+      enable: true
+    };
+
+    const isToolbarSettings = true;
 
     return {
+      mapSettings,
       tileLayers,
-      mapConfig,
       shapeLayers,
-
-      toolbarConfig,
-      mapPluginsConfig,
-
+      layersController,
+      scaleControl,
+      searchBox,
+      miniMap,
+      drawBar,
+      zoomControl,
+      mouseCoordinate,
+      polylineMeasure,
+      zoomToExtend,
+      zoomToExtendOnNewData: true,
+      unitsChanger, //
+      isImportExport, //
+      isToolbarSettings //
       //   onMapReady: this.onMapReadyCB.bind(this),
       //   onDrawEdited: this.drawEditedCB.bind(this),
       //   onDrawCreated: this.drawCreatedCB.bind(this),

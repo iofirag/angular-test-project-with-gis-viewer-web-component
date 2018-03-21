@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 import { GisViewerProps, TileLayerDefinition, ShapeLayerDefinition,
    MiniMapOptions,
    DrawBarOptions, MouseCoordinateOptions,
-   UnitsChangerOptions, MapConfig, LayerManagerConfig, ScaleConfig, SearchConfig, MiniMapConfig, DrawBarConfig, MouseCoordinateConfig, MeasureConfig, ZoomToExtentConfig, UnitsChangerConfig, FullScreenConfig, ToolbarConfig, MapPluginsConfig} from 'gis-viewer/dist/types/models/apiModels';
+   UnitsChangerOptions, MapConfig, LayerManagerConfig, ScaleConfig, SearchConfig, MiniMapConfig, DrawBarConfig, MouseCoordinateConfig, MeasureConfig, ZoomToExtentConfig, UnitsChangerConfig} from 'gis-viewer/dist/types/models/apiModels';
 
 // from '../../dist/assets/gis-viewer/gisviewer';
 
@@ -182,7 +182,7 @@ export class AppComponent {
     };
     const fullScreenConfig: FullScreenConfig = {
       enable: true
-    };
+    }
 
 
 
@@ -196,10 +196,10 @@ export class AppComponent {
         drawBarConfig, searchConfig
       }
 
-    };
+    }
     const mapPluginsConfig: MapPluginsConfig = {
       miniMapConfig, scaleConfig, mouseCoordinateConfig
-    };
+    }
 
     return {
       tileLayers,

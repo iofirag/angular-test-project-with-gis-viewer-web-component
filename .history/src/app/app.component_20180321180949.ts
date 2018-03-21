@@ -221,6 +221,6 @@ export class AppComponent {
       //   onEndImportDraw: this.endImportDrawCB.bind(this),
       //   onChangeMapMode: this.changeMapModeCD.bind(this),
       //   onFetchDataByShapeId: this.fetchDataByShapeIdCB.bind(this)
-    };
+    }
   }
 }

@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 //   PolylineMeasureOptions, ZoomToExtendOptions, UnitsChangerOptions
 // } from 'gis-viewer/dist/gisviewer';
 
-import { GisViewerProps, TileLayerDefinition, ShapeLayerDefinition,
-   MiniMapOptions,
-   DrawBarOptions, MouseCoordinateOptions,
-   UnitsChangerOptions, MapConfig, LayerManagerConfig, ScaleConfig, SearchConfig, MiniMapConfig, DrawBarConfig, MouseCoordinateConfig, MeasureConfig, ZoomToExtentConfig, UnitsChangerConfig, FullScreenConfig, ToolbarConfig, MapPluginsConfig} from 'gis-viewer/dist/types/models/apiModels';
+import { GisViewerProps, MapSettings, TileLayerDefinition, ShapeLayerDefinition,
+  LayersControllerOptions, ScaleControlOptions, SearchBoxOptions, MiniMapOptions,
+  ZoomControl, DrawBarOptions, MouseCoordinateOptions, PolylineMeasureOptions,
+  ZoomToExtendOptions, UnitsChangerOptions} from 'gis-viewer/dist/types/models/apiModels';
 
 // from '../../dist/assets/gis-viewer/gisviewer';
 
@@ -30,7 +30,7 @@ export class AppComponent {
   }
 
   createDevState(): GisViewerProps {
-    const protocol = 'http:';
+    const protocol: string = 'http:';
 
     const mapConfig: MapConfig = {
       isZoomToExtentOnNewData: true,
@@ -182,7 +182,7 @@ export class AppComponent {
     };
     const fullScreenConfig: FullScreenConfig = {
       enable: true
-    };
+    }
 
 
 
@@ -196,10 +196,10 @@ export class AppComponent {
         drawBarConfig, searchConfig
       }
 
-    };
+    }
     const mapPluginsConfig: MapPluginsConfig = {
       miniMapConfig, scaleConfig, mouseCoordinateConfig
-    };
+    }
 
     return {
       tileLayers,

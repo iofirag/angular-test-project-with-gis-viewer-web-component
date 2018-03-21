@@ -222,5 +222,5 @@ export class AppComponent {
       //   onChangeMapMode: this.changeMapModeCD.bind(this),
       //   onFetchDataByShapeId: this.fetchDataByShapeIdCB.bind(this)
     };
-  }
+  };
 }
