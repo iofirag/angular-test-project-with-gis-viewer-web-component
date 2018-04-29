@@ -109,27 +109,8 @@ export class AppComponent {
       }
     ];
 
-    const drawBarConfig: DrawBarConfig = {
-      enable: true,
-      drawBarOptions: {
-        draw: {
-          polyline: true,
-          polygon: true, // Turns off this drawing tool
-          circle: true, // Turns off this drawing tool
-          rectangle: true, // Turns off this drawing tool
-          marker: true, // Turns off this drawing tool
-          // circlemarker: false,
-          // textualMarker: false // Turns off this drawing tool
-        },
-        edit: {
-          remove: true // Turns on remove button
-        }
-      }
-    };
-
     const layerManagerConfig: LayerManagerConfig = {
       enable: true,
-      drawBarConfig,
       isImport: true
     };
 
@@ -158,6 +139,24 @@ export class AppComponent {
     // const zoomControlConfig: ZoomConfig = {
     //   enable: true
     // };
+
+    const drawBarConfig: DrawBarConfig = {
+      enable: true,
+      drawBarOptions: {
+        draw: {
+          polyline: true,
+          polygon: true, // Turns off this drawing tool
+          circle: true, // Turns off this drawing tool
+          rectangle: true, // Turns off this drawing tool
+          marker: true, // Turns off this drawing tool
+          // circlemarker: false,
+          // textualMarker: false // Turns off this drawing tool
+        },
+        edit: {
+          remove: true // Turns on remove button
+        }
+      }
+    };
 
     const mouseCoordinateConfig: MouseCoordinateConfig = {
       enable: true,
@@ -193,7 +192,8 @@ export class AppComponent {
       isSettings: true,
       toolbarPluginsConfig: {
         layerManagerConfig, fullScreenConfig, measureConfig,
-        unitsChangerConfig, zoomToExtentConfig, searchConfig
+        unitsChangerConfig, zoomToExtentConfig,
+        searchConfig
       }
 
     };

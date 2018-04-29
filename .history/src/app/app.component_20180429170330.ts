@@ -130,7 +130,7 @@ export class AppComponent {
     const layerManagerConfig: LayerManagerConfig = {
       enable: true,
       drawBarConfig,
-      isImport: true
+      isImport: false
     };
 
     const scaleConfig: ScaleConfig = {

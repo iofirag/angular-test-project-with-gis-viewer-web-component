@@ -22,10 +22,11 @@
           "glob": "**/*",
           "input": "../node_modules/gis-viewer/dist/collection/images",
           "output": "./images"
-        }, {
+        },
+        {
           "glob": "**/*",
-          "input": "../node_modules/gis-viewer/dist/collection/fonts",
-          "output": "./fonts"
+          "input": "../node_modules/gis-viewer/dist/collection/images",
+          "output": "./images"
         }
       ],
       "index": "index.html",

@@ -25,7 +25,7 @@
         }, {
           "glob": "**/*",
           "input": "../node_modules/gis-viewer/dist/collection/fonts",
-          "output": "./fonts"
+          "output": "./images"
         }
       ],
       "index": "index.html",

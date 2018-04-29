@@ -126,7 +126,7 @@ export class AppComponent {
         }
       }
     };
-
+    
     const layerManagerConfig: LayerManagerConfig = {
       enable: true,
       drawBarConfig,
